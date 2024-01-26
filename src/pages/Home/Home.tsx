@@ -1,60 +1,96 @@
-import Text from "../../components/Text";
-import { css } from "@emotion/react";
-import bgImage from "../../assets/nature.jpeg";
+import { Box, LinearProgress, Paper, useTheme } from "@mui/material";
+import Trail from "../../components/Trail";
+import { useEffect, useState } from "react";
+import Divider from "../../components/Divider";
+
+import MyInfo from "../../components/MyInfo";
 import github from "../../assets/github.png";
 import linkedin from "../../assets/linkedin.png";
 
-const homeCss = css`
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(${bgImage});
-  background-size: cover;
-  width: 100vw;
-  height: 100vh;
-`;
-
-const wrapperCss = css`
-  width: 55vw;
-`;
-
-const dividerCss = css`
-  width: 55vw;
-  margin-left: auto;
-  margin-right: auto;
-  height: 1px;
-  background-color: white;
-`;
-
-const iconWrapperCss = css`
-  img {
-    width: 40px;
-    height: 40px;
-    filter: brightness(0) invert(1);
-    cursor: pointer;
-  }
-`;
+// const skills = [
+//   "HTML",
+//   "CSS",
+//   "SCSS",
+//   "Javascript",
+//   "Typescript",
+//   "Java",
+//   "React",
+//   "Angular",
+//   "Vue",
+//   "Express",
+//   "MongoDB",
+//   "SQL",
+//   "Azure",
+//   "AWS",
+//   "Terraform",
+//   "Docker",
+//   "Linux",
+// ];
 
 function Home() {
+  const [loading, setLoading] = useState(false);
+  const theme = useTheme();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 700);
+  }, []);
+
   const routeTo = (url: string) => {
     window.location.href = url;
   };
 
   return (
-    <div css={homeCss} className="flex-center">
-      <div css={wrapperCss} className="flex flex-row">
-        <Text className="text-xl3 text-center">Caleb Justice</Text>
-        <Text className="text-medium text-center my-2">
-          I am a <Text className="text-bold">Fullstack Software Developer</Text>{" "}
-          that loves to tackle tough problems. I have dabbled in many frameworks
-          and languages, and like to dip my toes into the
-          <Text className="text-bold"> Infrastructure</Text> world.
-        </Text>
-        <div className="my-2" css={dividerCss}></div>
-        <div className="flex-center mt-2" css={iconWrapperCss}>
-          <img className="mx-2" onClick={() => routeTo("")} src={github} />
-          <img className="mx-2" onClick={() => routeTo("")} src={linkedin} />
-        </div>
-      </div>
-    </div>
+    <Paper sx={{ width: "100%", pl: 10, py: 4, pr: 4 }}>
+      {loading && (
+        <LinearProgress
+          sx={{ width: "80%", margin: "0 auto" }}
+          color="secondary"
+        />
+      )}
+      {!loading && (
+        <>
+          <Box>
+            <Trail customClass="trailsText" delay={200} open={true}>
+              <span>Caleb Justice</span>
+            </Trail>
+            <Trail customClass="secondText" delay={600} open={true}>
+              <span>Software Engineer</span>
+            </Trail>
+            <Divider color={theme.palette.primary.main} />
+          </Box>
+          <Trail delay={1000} customClass="" open={true}>
+            <MyInfo />
+          </Trail>
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="space-between"
+            sx={{ position: "absolute", top: 20, right: 40 }}
+          >
+            <img
+              onClick={() => routeTo("https://github.com/calebJustice7")}
+              style={{
+                cursor: "pointer",
+                width: "40px",
+                height: "40px",
+                filter: "invert(100)",
+                margin: "20px 0 20px 0",
+              }}
+              src={github}
+            />
+            <img
+              onClick={() =>
+                routeTo("https://www.linkedin.com/in/caleb-justice-93b863191/")
+              }
+              style={{ width: "40px", cursor: "pointer", height: "40px" }}
+              src={linkedin}
+            />
+          </Box>
+        </>
+      )}
+    </Paper>
   );
 }
 
