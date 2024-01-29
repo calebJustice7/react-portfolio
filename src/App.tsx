@@ -9,6 +9,7 @@ const theme = createTheme({
     mode: "dark",
     primary: {
       main: "rgba(42,156,213,1)",
+      light: "rgba(42,156,213,0.3)",
     },
   },
   typography: {

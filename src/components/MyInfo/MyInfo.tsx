@@ -35,7 +35,7 @@ function MyInfo() {
             width: 400,
             height: 400,
             marginLeft: "auto",
-            mr: 10,
+            mr: 20,
             boxShadow: "8px 6px 13px 1px rgba(42,156,213,1)",
           }}
         />
