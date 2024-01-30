@@ -13,6 +13,10 @@ const workExperience = [
   {
     jobName: "Sunrebel",
     title: "Software Developer",
+    highlight:
+      "Developed a user-friendly interface enabling 3D modeling of residential structures, incorporating LiDAR technology to accurately estimate shading and sunlight production.",
+    description:
+      "Worked on integrations with financiers, and other large providers like DocuSign, SignRequest, Google, etc. Helped devlop and plan new features for customers, while also balancing internal tech upgrades to meet compliance and improve developer experience",
     techUsed: [
       "React",
       "Typescript",
@@ -28,6 +32,10 @@ const workExperience = [
   {
     jobName: "Upfront Healthcare",
     title: "Software Engineer",
+    highlight:
+      "Constructed a customizable website interface, empowering customers to personalize their websites. Engineered a system to generate raw code and securely store it in a custom storage solution. Implemented a dynamic NodeJS web server for optimal performance and security, seamlessly delivering content from storage to users' browsers",
+    description:
+      "I worked directly with the CTO and customers to maintain the project. I added new features, managed and rebuilt the infrastructure, and maintained customer requests and integrations.",
     techUsed: [
       "Vue",
       "NodeJS",
@@ -42,15 +50,27 @@ const workExperience = [
   {
     jobName: "Patientbond",
     title: "Full-stack developer",
+    description:
+      "I worked directly with the CTO to understand and develop features. Being a start-up I was responsible for the feature design, working with big data to try and create optimal performant solutions",
+    highlight:
+      "Developed a dynamic mapping system allowing customers to submit patient lists. Aggregated and formatted data for viewing millions of records simultaneously on a map, with customizable filters for various criteria. Implemented within a multi-tenant environment to ensure seamless and efficient data visualization.",
+
     techUsed: ["HTML", "CSS", "Javascript", "Bootstrap", "MongoDB", "AWS"],
   },
   {
     jobName: "Ionrev",
     title: "Full-stack developer",
+    highlight:
+      "Attended meetings with large people involved in tech, communicating technical terms to business requirements and vice-versa",
+    description:
+      "Worked with a team of other developers to maintain a multitude of projects, constantly switching tasks while also maintaining a public NPM package with useful helpers for other developers to use",
     techUsed: ["Vue", "FeathersJS", "MongoDB"],
   },
   {
     jobName: "Velvet",
+    highlight: "Early stage startup, first paid employee.",
+    description:
+      "Worked with the CEO and CTO directly to build out the inital application prototype.",
     title: "Web Development Intern",
     techUsed: ["Bubble.io", "HTML", "CSS", "Javascript"],
   },
@@ -60,7 +80,16 @@ function AboutMe() {
   const theme = useTheme();
 
   return (
-    <Paper sx={{ width: "100%", pl: 12, pt: 4, pr: 4 }}>
+    <Paper
+      sx={{
+        width: "100%",
+        pl: 12,
+        pt: 4,
+        pr: 4,
+        overflow: "scroll",
+        pb: 4,
+      }}
+    >
       <Trail customClass="trailsText" delay={200} open={true}>
         <span>About me</span>
       </Trail>
@@ -98,12 +127,19 @@ function AboutMe() {
                   pl: 2,
                 }}
               >
-                <Stack direction="row" spacing={1}>
-                  <Typography sx={{ fontWeight: "800" }}>Title:</Typography>
-                  <Typography sx={{ fontWeight: "300" }}>
-                    {job.title}
-                  </Typography>
-                </Stack>
+                <Typography>
+                  <span style={{ fontWeight: "800" }}>Title:</span>
+                  <span style={{ fontWeight: "100" }}> {job.title}</span>
+                </Typography>
+                <Typography>
+                  <span style={{ fontWeight: "800" }}>Highlight:</span>
+                  <span style={{ fontWeight: "100" }}> {job.highlight}</span>
+                </Typography>
+                <Typography>
+                  <span style={{ fontWeight: "800" }}>Description:</span>
+                  <span style={{ fontWeight: "100" }}> {job.description}</span>
+                </Typography>
+
                 <Stack direction="row" spacing={1}>
                   <Stack direction="row" spacing={1} flexWrap="wrap">
                     {job.techUsed.map((tech, idx) => (
