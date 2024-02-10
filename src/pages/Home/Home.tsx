@@ -3,6 +3,7 @@ import {
   LinearProgress,
   Paper,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import Trail from "../../components/Trail";
@@ -36,6 +37,7 @@ const skills = [
 function Home() {
   const [loading, setLoading] = useState(false);
   const theme = useTheme();
+  const lg = useMediaQuery(theme.breakpoints.up("lg"));
 
   useEffect(() => {
     setTimeout(() => {
@@ -48,7 +50,16 @@ function Home() {
   };
 
   return (
-    <Paper sx={{ width: "100%", pl: 10, py: 4, pr: 4 }}>
+    <Paper
+      sx={{
+        width: "100%",
+        pl: 10,
+        py: 4,
+        pr: 4,
+        overflow: "scroll",
+        position: "relative",
+      }}
+    >
       {loading && (
         <LinearProgress
           sx={{ width: "80%", margin: "0 auto" }}
@@ -74,7 +85,7 @@ function Home() {
             <Divider color={theme.palette.primary.main} />
           </Box>
           <Trail delay={1000} customClass="" open={true}>
-            <Box sx={{ alignSelf: "center", mt: -15 }}>
+            <Box sx={{ alignSelf: "center", mt: lg ? -15 : -4 }}>
               <MyInfo />
             </Box>
           </Trail>

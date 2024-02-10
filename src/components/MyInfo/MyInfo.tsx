@@ -1,4 +1,11 @@
-import { Avatar, Grid, Typography, styled, useTheme } from "@mui/material";
+import {
+  Avatar,
+  Grid,
+  Typography,
+  styled,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import headshot from "../../assets/Portrait_small.jpg";
 import { useTrail, a } from "@react-spring/web";
 import CustomButton from "../CustomButton";
@@ -18,6 +25,7 @@ function MyInfo() {
     delay: 1900,
   });
   const theme = useTheme();
+  const lg = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
     <Grid
@@ -32,15 +40,21 @@ function MyInfo() {
           alt="Remy Sharp"
           src={headshot}
           sx={{
-            width: 400,
-            height: 400,
-            marginLeft: "auto",
-            mr: 20,
+            width: lg ? 400 : 250,
+            height: lg ? 400 : 250,
+            marginLeft: lg ? "auto" : "default",
+            mr: lg ? 20 : "default",
+            margin: lg ? "default" : "auto",
             boxShadow: "8px 6px 13px 1px rgba(42,156,213,1)",
           }}
         />
       </Grid>
-      <Grid item xs={12} lg={6}>
+      <Grid
+        item
+        xs={12}
+        lg={6}
+        sx={{ marginTop: lg ? 0 : 5, textAlign: lg ? "default" : "center" }}
+      >
         {trail.map(({ ...style }, index) => (
           <a.div key={index} style={style}>
             <Typography
@@ -63,7 +77,7 @@ function MyInfo() {
                 repeat={Infinity}
               />
             </Typography>
-            <Typography sx={{ width: "80%", mt: 1 }}>
+            <Typography sx={{ width: lg ? "80%" : "100%", mt: 1 }}>
               I'm <Span> Caleb Justice, </Span> a
               <Span> Full-Stack Developer </Span>
               with over 4 years of experience. I strive to produce clean,
