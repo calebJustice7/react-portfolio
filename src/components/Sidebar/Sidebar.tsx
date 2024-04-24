@@ -1,5 +1,10 @@
-import { Accessibility, AccountCircle, AccountTree } from "@mui/icons-material";
-import { Box, Button, Drawer, Typography } from "@mui/material";
+import {
+  Accessibility,
+  AccountCircle,
+  AccountTree,
+  ImportantDevices,
+} from "@mui/icons-material";
+import { Box, Button, Drawer, Tooltip, Typography } from "@mui/material";
 import Divider from "../Divider";
 
 function Sidebar() {
@@ -31,44 +36,29 @@ function Sidebar() {
       <Typography>CJ</Typography>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Divider />
-        <Button
-          onClick={() => routeTo("/")}
-          sx={{
-            my: 0.5,
-            // backgroundColor:
-            //   window.location.pathname === "/"
-            //     ? theme.palette.primary.main
-            //     : "",
-          }}
-        >
-          <Accessibility />
-        </Button>
+        <Tooltip title="Summary" placement="right-start">
+          <Button onClick={() => routeTo("/")} sx={{ my: 0.5 }}>
+            <Accessibility />
+          </Button>
+        </Tooltip>
         <Divider />
-        <Button
-          onClick={() => routeTo("/#/about-me")}
-          sx={{
-            my: 0.5,
-            // backgroundColor:
-            //   window.location.pathname === "/#/about-me"
-            //     ? theme.palette.primary.main
-            //     : "",
-          }}
-        >
-          <AccountCircle />
-        </Button>
+        <Tooltip title="About me" placement="right-start">
+          <Button onClick={() => routeTo("/#/about-me")} sx={{ my: 0.5 }}>
+            <AccountCircle />
+          </Button>
+        </Tooltip>
         <Divider />
-        <Button
-          onClick={() => routeTo("/#/resume")}
-          sx={{
-            my: 0.5,
-            // backgroundColor:
-            //   window.location.pathname === "/#/resume"
-            //     ? theme.palette.primary.main
-            //     : "",
-          }}
-        >
-          <AccountTree />
-        </Button>
+        <Tooltip title="Projects" placement="right-start">
+          <Button onClick={() => routeTo("/#/projects")} sx={{ my: 0.5 }}>
+            <ImportantDevices />
+          </Button>
+        </Tooltip>
+        <Divider />
+        <Tooltip title="Resume" placement="right-start">
+          <Button onClick={() => routeTo("/#/resume")} sx={{ my: 0.5 }}>
+            <AccountTree />
+          </Button>
+        </Tooltip>
         <Divider />
       </Box>
       <Box></Box>
