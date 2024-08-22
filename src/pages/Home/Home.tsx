@@ -89,8 +89,8 @@ function Home() {
               <MyInfo />
             </Box>
           </Trail>
-          <Box sx={{ width: "90%", margin: "0 auto" }}>
-            <Typography sx={{ fontWeight: "600", mb: 1 }}>
+          <Box sx={{ width: "100%", margin: "0 auto" }}>
+            <Typography sx={{ fontWeight: "600", mb: 2 }}>
               {/* Main technologies used */}
             </Typography>
             <Divider color={theme.palette.primary.main} />
@@ -98,13 +98,24 @@ function Home() {
               sx={{
                 my: 1.5,
                 display: "flex",
-                justifyContent: "space-between",
+                justifyContent: "flex-start",
                 flexWrap: "wrap",
                 width: "100%",
               }}
             >
               {skills.map((skill, index) => (
-                <span style={{ margin: "0 5px" }} key={index}>
+                <span
+                  style={{
+                    margin: "0 5px",
+                    // boxShadow: "2px 0px 6px 2px rgba(42,156,213,.6)",
+
+                    backgroundColor: "rgb(42,156,213)",
+                    borderRadius: "5px",
+                    padding: "4px 7px",
+                    marginTop: "8px",
+                  }}
+                  key={index}
+                >
                   {skill}
                 </span>
               ))}

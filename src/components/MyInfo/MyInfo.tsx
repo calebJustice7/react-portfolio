@@ -40,12 +40,12 @@ function MyInfo() {
           alt="Remy Sharp"
           src={headshot}
           sx={{
-            width: lg ? 400 : 250,
-            height: lg ? 400 : 250,
+            width: lg ? 350 : 220,
+            height: lg ? 350 : 220,
             marginLeft: lg ? "auto" : "default",
             mr: lg ? 20 : "default",
             margin: lg ? "default" : "auto",
-            boxShadow: "8px 6px 13px 1px rgba(42,156,213,1)",
+            boxShadow: "8px 0px 30px 2px rgba(42,156,213,1)",
           }}
         />
       </Grid>
@@ -53,12 +53,15 @@ function MyInfo() {
         item
         xs={12}
         lg={6}
-        sx={{ marginTop: lg ? 0 : 5, textAlign: lg ? "default" : "center" }}
+        sx={{
+          marginTop: lg ? 0 : 5,
+          textAlign: lg ? "default" : "center",
+        }}
       >
         {trail.map(({ ...style }, index) => (
           <a.div key={index} style={style}>
             <Typography
-              variant="h2"
+              variant="h3"
               sx={{ fontWeight: 600, marginLeft: "-5px" }}
             >
               <TypeAnimation
@@ -85,12 +88,12 @@ function MyInfo() {
               the end user.
             </Typography>
             <Link to="/resume">
-              <CustomButton sx={{ mt: 3 }}>Resume</CustomButton>
+              <CustomButton sx={{ mt: 2 }}>Resume</CustomButton>
             </Link>
             <Link to="/about-me">
               <CustomButton
                 sx={{
-                  mt: 3,
+                  mt: 2,
                   ml: 2,
                   backgroundColor: theme.palette.secondary.main,
                 }}
