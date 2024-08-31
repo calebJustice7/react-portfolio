@@ -6,7 +6,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import headshot from "../../assets/Portrait_small.jpg";
+import svg from "../../assets/home.svg";
 import { useTrail, a } from "@react-spring/web";
 import CustomButton from "../CustomButton";
 import { TypeAnimation } from "react-type-animation";
@@ -22,10 +22,12 @@ function MyInfo() {
     opacity: 1,
     x: 0,
     from: { opacity: 0, x: 20 },
-    delay: 1900,
+    delay: 900,
   });
   const theme = useTheme();
   const lg = useMediaQuery(theme.breakpoints.up("lg"));
+  const xl = useMediaQuery(theme.breakpoints.up("xl"));
+  const xs = useMediaQuery(theme.breakpoints.up("xs"));
 
   return (
     <Grid
@@ -33,19 +35,19 @@ function MyInfo() {
       container
       display="flex"
       alignItems="center"
-      justifyContent="center"
+      justifyContent="space-around"
     >
-      <Grid item xs={12} lg={6}>
+      <Grid item xs={12} lg={6} xl={5}>
         <Avatar
           alt="Remy Sharp"
-          src={headshot}
+          src={svg}
           sx={{
-            width: lg ? 350 : 220,
-            height: lg ? 350 : 220,
+            width: xl ? 550 : lg ? 450 : xs ? 300 : 400,
+            height: xl ? 550 : lg ? 450 : xs ? 300 : 400,
             marginLeft: lg ? "auto" : "default",
             mr: lg ? 20 : "default",
             margin: lg ? "default" : "auto",
-            boxShadow: "8px 0px 30px 2px rgba(42,156,213,1)",
+            // boxShadow: "8px 0px 30px 2px rgba(42,156,213,1)",
           }}
         />
       </Grid>
@@ -53,6 +55,7 @@ function MyInfo() {
         item
         xs={12}
         lg={6}
+        xl={5}
         sx={{
           marginTop: lg ? 0 : 5,
           textAlign: lg ? "default" : "center",
@@ -84,8 +87,8 @@ function MyInfo() {
               I'm <Span> Caleb Justice, </Span> a
               <Span> Full-Stack Developer </Span>
               with over 4 years of experience. I strive to produce clean,
-              reusable, and maintainable code, while also meeting the needs of
-              the end user.
+              reusable, and maintainable code. I am passionate about technology
+              and always eager to learn new things. (And I get paid to do it??)
             </Typography>
             <Link to="/resume">
               <CustomButton sx={{ mt: 2 }}>Resume</CustomButton>

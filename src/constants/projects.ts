@@ -14,7 +14,7 @@ export const projects = [
       "AWS",
     ],
     description:
-      "An advanced daily planner for keeping track of your tasks and goals to stay organized. (The github is private, but I created a public version with a porion of the working app",
+      "An advanced daily planner for keeping track of your tasks and goals to stay organized. (The github is private, but I created a public version with a portion of the working app",
     githubURL: "https://github.com/calebJustice7/planning",
   },
   {
@@ -53,13 +53,13 @@ export const projects = [
       "A project template that can be used for starting new web applications quickly. I plan to make it easily deployable to AWS in the future, with terraform included",
     githubURL: "https://github.com/calebJustice7/MERNt-template",
   },
-  {
-    title: "Social Media",
-    imageURL:
-      "https://caleb-general.s3.amazonaws.com/portfolio-site/Screenshot+2024-04-23+at+9.34.06%E2%80%AFPM.png",
-    technology: ["React", "Typescript", "MUI", "NodeJS", "MongoDB", "OAuth"],
-    description:
-      "A quick project that I built over a weekend to share images, comment, and like other people's images.",
-    githubURL: "https://github.com/calebJustice7/social-react",
-  },
+  // {
+  //   title: "Social Media",
+  //   imageURL:
+  //     "https://caleb-general.s3.amazonaws.com/portfolio-site/Screenshot+2024-04-23+at+9.34.06%E2%80%AFPM.png",
+  //   technology: ["React", "Typescript", "MUI", "NodeJS", "MongoDB", "OAuth"],
+  //   description:
+  //     "A quick project that I built over a weekend to share images, comment, and like other people's images.",
+  //   githubURL: "https://github.com/calebJustice7/social-react",
+  // },
 ];
