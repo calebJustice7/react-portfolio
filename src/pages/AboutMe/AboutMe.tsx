@@ -73,9 +73,9 @@ function AboutMe() {
     <Paper
       sx={{
         width: "100%",
-        pl: 12,
+        pl: { md: 12, xs: 8 },
         pt: 4,
-        pr: 4,
+        pr: { md: 4, xs: 2.5 },
         overflow: "auto",
         pb: 4,
       }}
@@ -90,7 +90,7 @@ function AboutMe() {
         </Typography>
         <Grid container gap={2}>
           {workExperience.map((job, index) => (
-            <Grid item xs={10} md={5} key={index}>
+            <Grid item xs={12} md={5} key={index}>
               <Box
                 sx={{
                   backgroundColor: theme.palette.primary.main,
